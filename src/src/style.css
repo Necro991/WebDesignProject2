@@ -1,0 +1,148 @@
+
+#baked{
+  background-color: black;
+  opacity: 0.4;
+  width: 100%;
+  height: 25px;
+  padding: 10px;
+
+}
+#maingame{
+  height: 600px;
+}
+#change{
+  position:relative;
+  top: -350px;
+}
+.donut {
+    border: 1px solid #CD853F;
+    background-image: url('donut.png') ;
+    background-size: contain;
+    border-radius: 100%;
+    height: 300px;
+    width: 300px;
+    margin: 25px;
+
+    position: relative;
+    top: -375px;
+
+}
+
+.donut:hover     {
+  transform: scale(1.10);
+
+}
+.donut:active    {
+  transform: scale(0.95);
+
+}
+
+#ray{
+  margin: 0;
+  width: 400px;
+  height: 400px;
+  background-image: url('rays.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 0%;
+  -webkit-animation: rotation 10s infinite linear;
+}
+
+.btn{
+    font-size: 12px;
+    background-color: black;
+    border: none;
+    color: white;
+    opacity: 0.5;
+
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+@-webkit-keyframes rotation {
+  from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
+}
+
+body{
+  margin: 0;
+  color: white;
+  background: linear-gradient(-30deg, #EE7752, #FF1946, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+.production {
+  height: 500%;
+  width: 50%;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  overflow-x: visible;
+  padding-top: 20px;
+  display: inline-block;
+
+}
+.left {
+  float: left;
+}
+
+/* Control the right side */
+.right {
+  float: right;
+}
+
+.centered {
+  position: relative;
+  margin-top: 150px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}

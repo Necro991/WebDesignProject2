@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<title>Donut Clicker</title>
+		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+		<script>
+			var total = 0; //Total number
+			var displayTotal = 0; //A display total to keep things looking clean
+			var rate = 0; //Rate per second
+			var clickMult = 1; //Multiplier on click
+			var updateRate = 10; //Rate of production, starts at once per 10ms, will be cut down by upgrades
+			var prodOne = 0; //The next five are the buyable parts
+			var prodTwo = 0;
+			var prodThree = 0;
+			var prodFour = 0;
+			var prodFive = 0;
+			var rateOne = 1; //The next five are the initial rates of each purchase
+			var rateTwo = 5;
+			var rateThree = 25;
+			var rateFour = 125;
+			var rateFive = 625;
+			var upClicker = 0; //Times clicker has been upgraded
+			var upOne = 0; //The next five are the total upgrades of each
+			var upTwo = 0;
+			var upThree = 0;
+			var upFour = 0;
+			var upFive = 0;
+
+			function clickButton(){ //Function to click the main button
+				total += (1 * clickMult);
+				displayTotal = Math.floor(total);
+				document.getElementById("total").innerHTML = displayTotal;
+			}
+
+			function buyFirst(){ //Function to buy first production thing
+				var costOne = Math.ceil(10 * Math.pow(1.1, prodOne)); //Cost calculation
+				var nextOne = Math.ceil(10 * Math.pow(1.1, (prodOne + 1))); //Next cost
+				if (total >= costOne){ //Checks for enough total
+					prodOne += 1;
+					total -= costOne;
+					rate += rateOne;
+					displayTotal = Math.floor(total);
+					document.getElementById("total").innerHTML = displayTotal;
+					document.getElementById("rate").innerHTML = rate;
+					document.getElementById("costOne").innerHTML = nextOne;
+				}
+				else{
+					alert("Not enough donuts!");
+				}
+			}
+			function buySecond(){
+				var costTwo = Math.ceil(500 * Math.pow(1.1, prodTwo)); //Cost calculation
+				var nextTwo = Math.ceil(10 * Math.pow(1.1, (prodTwo + 1))); //Next cost
+				if (total >= costTwo){ //Checks for enough total
+					prodTwo += 1;
+					total -= costTwo;
+					rate += rateTwo;
+					displayTotal = Math.floor(total);
+					document.getElementById("total").innerHTML = displayTotal;
+					document.getElementById("rate").innerHTML = rate;
+					document.getElementById("costTwo").innerHTML = nextTwo;
+				}
+				else{
+					alert("Not enough donuts!");
+				}
+			}
+			function buyThird(){
+				var costThree = Math.ceil(1000 * Math.pow(1.1, prodThree)); //Cost calculation
+				var nextThree = Math.ceil(1000 * Math.pow(1.1, (prodThree + 1))); //Next cost
+				if (total >= costThree){ //Checks for enough total
+					prodThree += 1;
+					total -= costThree;
+					rate += rateThree;
+					displayTotal = Math.floor(total);
+					document.getElementById("total").innerHTML = displayTotal;
+					document.getElementById("rate").innerHTML = rate;
+					document.getElementById("costThree").innerHTML = nextThree;
+				}
+				else{
+					alert("Not enough donuts!");
+				}
+			}
+			function buyFourth(){
+				var costFour = Math.ceil(4000 * Math.pow(1.1, prodFour)); //Cost calculation
+				var nextFour = Math.ceil(4000 * Math.pow(1.1, (prodFour + 1))); //Next cost
+				if (total >= costFour){ //Checks for enough total
+					prodFour += 1;
+					total -= costFour;
+					rate += rateFour;
+					displayTotal = Math.floor(total);
+					document.getElementById("total").innerHTML = displayTotal;
+					document.getElementById("rate").innerHTML = rate;
+					document.getElementById("costFour").innerHTML = nextFour;
+				}
+				else{
+					alert("Not enough donuts!");
+				}
+			}
+			function buyFifth(){
+				var costFive = Math.ceil(16000 * Math.pow(1.1, prodFive)); //Cost calculation
+				var nextFive = Math.ceil(16000 * Math.pow(1.1, (prodFive + 1))); //Next cost
+				if (total >= costFive){ //Checks for enough total
+					prodFive += 1;
+					total -= costFive;
+					rate += rateFive;
+					displayTotal = Math.floor(total);
+					document.getElementById("total").innerHTML = displayTotal;
+					document.getElementById("rate").innerHTML = rate;
+					document.getElementById("costFive").innerHTML = nextFive;
+				}
+				else{
+					alert("Not enough donuts!");
+				}
+			}
+
+			function upgradeFirst(){ //Function to upgrade first production thing
+				var costUpOne = Math.ceil(1000 * Math.pow(1.5, upOne)); //Cost calculation
+				var nextOne = Math.ceil(1000 * Math.pow(1.5, (upOne + 1))); //Next cost
+				if (total >= costUpOne){ //Checks for enough total
+					upOne += 1;
+					total -= costUpOne;
+					var prevRate = prodOne * rateOne; //Calculates old rate
+					rateOne *= 2; //Doubles rate
+					var newRate = prodOne * rateOne; //Calculates rate change
+					rate = (rate - prevRate) + newRate;  //Fixes rate
+					displayTotal = Math.floor(total);
+					document.getElementById("total").innerHTML = displayTotal;
+					document.getElementById("rate").innerHTML = rate;
+					document.getElementById("rateOne").innerHTML = rateOne;
+					document.getElementById("costUpOne").innerHTML = nextOne; //Upgrade id
+				}
+				else{
+					alert("Not enough donuts!");
+				}
+			}
+			function upgradeSecond(){
+				var costUpTwo = Math.ceil(50000 * Math.pow(1.5, upTwo)); //Cost calculation
+				var nextTwo = Math.ceil(50000 * Math.pow(1.5, (upTwo + 1))); //Next cost
+				if (total >= costUpTwo){ //Checks for enough total
+					upTwo += 1;
+					total -= costUpTwo;
+					var prevRate = prodTwo * rateTwo; //Calculates old rate
+					rateTwo *= 2; //Doubles rate
+					var newRate = prodTwo * rateTwo; //Calculates rate change
+					rate = (rate - prevRate) + newRate;  //Fixes rate
+					displayTotal = Math.floor(total);
+					document.getElementById("total").innerHTML = displayTotal;
+					document.getElementById("rate").innerHTML = rate;
+					document.getElementById("rateTwo").innerHTML = rateTwo;
+					document.getElementById("costUpTwo").innerHTML = nextTwo; //Upgrade id
+				}
+				else{
+					alert("Not enough donuts!");
+				}
+			}
+			function upgradeThird(){
+				var costUpThree = Math.ceil(100000 * Math.pow(1.5, upThree)); //Cost calculation
+				var nextThree = Math.ceil(1000 * Math.pow(1.5, (upThree + 1))); //Next cost
+				if (total >= costUpThree){ //Checks for enough total
+					upThree += 1;
+					total -= costUpThree;
+					var prevRate = prodThree * rateThree; //Calculates old rate
+					rateThree *= 2; //Doubles rate
+					var newRate = prodThree * rateThree; //Calculates rate change
+					rate = (rate - prevRate) + newRate;  //Fixes rate
+					displayTotal = Math.floor(total);
+					document.getElementById("total").innerHTML = displayTotal;
+					document.getElementById("rate").innerHTML = rate;
+					document.getElementById("rateThree").innerHTML = rateThree;
+					document.getElementById("costUpThree").innerHTML = nextThree; //Upgrade id
+				}
+				else{
+					alert("Not enough donuts!");
+				}
+			}
+			function upgradeFourth(){
+				var costUpFour = Math.ceil(400000 * Math.pow(1.5, upFour)); //Cost calculation
+				var nextFour = Math.ceil(400000 * Math.pow(1.5, (upFour + 1))); //Next cost
+				if (total >= costUpFour){ //Checks for enough total
+					upFour += 1;
+					total -= costUpFour;
+					var prevRate = prodFour * rateFour; //Calculates old rate
+					rateFour *= 2; //Doubles rate
+					var newRate = prodFour * rateFour; //Calculates rate change
+					rate = (rate - prevRate) + newRate;  //Fixes rate
+					displayTotal = Math.floor(total);
+					document.getElementById("total").innerHTML = displayTotal;
+					document.getElementById("rate").innerHTML = rate;
+					document.getElementById("rateFour").innerHTML = rateFour;
+					document.getElementById("costUpFour").innerHTML = nextFour; //Upgrade id
+				}
+				else{
+					alert("Not enough donuts!");
+				}
+			}
+			function upgradeFifth(){
+				var costUpFive = Math.ceil(1600000 * Math.pow(1.5, upFive)); //Cost calculation
+				var nextFive = Math.ceil(1600000 * Math.pow(1.5, (upFive + 1))); //Next cost
+				if (total >= costUpFive){ //Checks for enough total
+					upFive += 1;
+					total -= costUpFive;
+					var prevRate = prodFive * rateFive; //Calculates old rate
+					rateFive *= 2; //Doubles rate
+					var newRate = prodFive * rateFive; //Calculates rate change
+					rate = (rate - prevRate) + newRate;  //Fixes rate
+					displayTotal = Math.floor(total);
+					document.getElementById("total").innerHTML = displayTotal;
+					document.getElementById("rate").innerHTML = rate;
+					document.getElementById("rateFive").innerHTML = rateFive;
+					document.getElementById("costUpFive").innerHTML = nextFive; //Upgrade id
+				}
+				else{
+					alert("Not enough donuts!");
+				}
+			}
+
+			function upgradeClicker(){
+				var costClicker = Math.ceil(100 * Math.pow(1.5, upClicker)); //Cost Calculation
+				var nextClicker = Math.ceil(100 * Math.pow(1.5, (upFive + 1))); //Next Cost
+				if (total >= costClicker){
+					upClicker += 1;
+					clickMult *= 2;
+					total -= costClicker;
+					document.getElementById("costClicker").innerHTML = nextClicker; //Upgrade id
+				}
+				else{
+					alert("Not enough donuts!");
+				}
+			}
+
+			var interval = setInterval(function(){ //Game Loop
+				total += (rate*(1/100));
+				displayTotal = Math.floor(total);
+				document.getElementById("total").innerHTML = displayTotal;
+
+				//Upgrades Appearing Happens Below
+
+			}, updateRate);
+
+		</script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="cursor.js">	</script>
+	</head>
+	<body>
+		<div id="maingame" align="center">
+			<h1>Donut Clicker</h1>
+			<h3 id="baked">Donuts Baked: <span id="total">6871</span></h3>
+			<div id="ray"></div>
+			<button class="donut" id="addOne" onclick="clickButton()"></button>
+			<h3 id="change">Donuts Per Second: <span id="rate">0</span></h3>
+		</div>
+
+
+		<div class="production right">
+			<div class="centered">
+				<p style='font-size: 36px; font-weight: bold; text-decoration: underline overline; margin-top: -20px; margin-bottom:15px;'>FEATURES</p>
+				<button class="btn" id="prodOne" onclick="buyFirst()">Buy <span id="rateOne">1 </span><i class='far fa-hand-pointer' style='font-size:24px'></i>  For <span id="costOne">10</span> Donuts</button><br>
+				<button class="btn" id="prodTwo" onclick="buySecond()">Buy <span id="rateTwo">5 </span><i class='fas fa-coffee' style='font-size:24px'></i>  For <span id="costTwo">500</span> Donuts</button><br>
+				<button class="btn" id="prodThree" onclick="buyThird()">Buy <span id="rateThree">25 </span><i class='far fa-lightbulb' style='font-size:24px'></i>  for <span id="costThree">1000</span> Donuts</button><br>
+				<button class="btn" id="prodFour" onclick="buyFourth()">Buy <span id="rateFour">125 </span><i class='fas fa-hotel' style='font-size:24px'></i>  For <span id="costFour">4000</span> Donuts</button><br>
+				<button class="btn" id="prodFive" onclick="buyFifth()">Buy <span id="rateFive">625 </span><i class='fas fa-gem' style='font-size:24px'></i>  For <span id="costFive">16000 </span> Donuts</button>
+			</div>
+		</div>
+		<div class="production left">
+			<div class="centered">
+				<p style='font-size: 36px; font-weight: bold;text-decoration: underline overline; margin:15px;'>UPGRADES</p>
+				<button class="btn" id="upClicker" onclick="upgradeClicker()">Unlock Double Click For <span id="costClicker">100</span> Donuts</button><br>
+				<button class="btn" id="upOne" onclick="upgradeFirst()">Upgrade </span><i class='far fa-hand-pointer' style='font-size:24px'></i> Feature For <span id="costUpOne">1000</span> Donuts</button><br>
+				<button class="btn" id="upTwo" onclick="upgradeSecond()">Upgrade </span><i class='fas fa-coffee' style='font-size:24px'></i> Feature For <span id="costUpTwo">50000</span> Donuts</button><br>
+				<button class="btn" id="upThree" onclick="upgradeThird()">Upgrade </span><i class='far fa-lightbulb' style='font-size:24px'></i> Feature For <span id="costUpThree">100000</span> Donuts</button><br>
+				<button class="btn" id="upFour" onclick="upgradeFourth()">Upgrade </span><i class='fas fa-hotel' style='font-size:24px'></i> Feature For <span id="costUpFour">400000</span> Donuts</button><br>
+				<button class="btn" id="upFive" onclick="upgradeFifth()">Upgrade </span><i class='fas fa-gem' style='font-size:24px'></i> Feature For <span id="costUpFive">1600000</span> Donuts</button><br>
+			</div>
+		</div>
+
+
+
+	<footer>
+
+	</footer>
+
+</body></html>
