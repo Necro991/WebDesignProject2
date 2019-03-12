@@ -1,3 +1,13 @@
+* {
+    /*Cannot Text*/
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 #baked{
   background-color: black;
   opacity: 0.4;
@@ -7,7 +17,7 @@
 
 }
 #maingame{
-  height: 550px;
+  height: 600px;
 }
 #change{
   position:relative;
@@ -24,7 +34,7 @@
 
     position: relative;
     top: -375px;
-    /*-webkit-animation: rotation 4s infinite linear;*/
+
 }
 
 .donut:hover     {
@@ -44,10 +54,11 @@
   background-repeat: no-repeat;
   background-size: contain;
   border-radius: 0%;
-  -webkit-animation: rotation 4s infinite linear;
+  -webkit-animation: rotation 10s infinite linear;
 }
 
 .btn{
+    font-size: 12px;
     background-color: black;
     border: none;
     color: white;
@@ -74,7 +85,7 @@
 body{
   margin: 0;
   color: white;
-  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  background: linear-gradient(-30deg, #EE7752, #FF1946, #23A6D5, #23D5AB);
 	background-size: 400% 400%;
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;

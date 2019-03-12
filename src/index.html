@@ -1,7 +1,8 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
+<!DOCTYPE html>
+<!-- saved from url=(0046)file:///Users/haonguyen/Desktop/src/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 		<title>Donut Clicker</title>
+		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 		<script>
 			var total = 0; //Total number
 			var displayTotal = 0; //A display total to keep things looking clean
@@ -235,43 +236,47 @@
 				//Upgrades Appearing Happens Below
 
 			}, updateRate);
+
 		</script>
-		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="file:///Users/haonguyen/Desktop/src/style.css">
+		<script type="text/javascript" src="cursor.js">	</script>
 	</head>
 	<body>
 		<div id="maingame" align="center">
 			<h1>Donut Clicker</h1>
-			<h3 id="baked">Donuts Baked: <span id="total">0</span></h3>
+			<h3 id="baked">Donuts Baked: <span id="total">6871</span></h3>
 			<div id="ray"></div>
 			<button class="donut" id="addOne" onclick="clickButton()"></button>
-			<div id="rays"></div>
 			<h3 id="change">Donuts Per Second: <span id="rate">0</span></h3>
 		</div>
 
 
-		<div class="production right" >
+		<div class="production right">
 			<div class="centered">
-				<button class="btn" id="prodOne" onclick="buyFirst()">Buy <span id="rateOne">1</span> For <span id="costOne">10</span></button><br>
-				<button class="btn" id="prodTwo" onclick="buySecond()">Buy <span id="rateTwo">5</span> For <span id="costTwo">500</span></button><br>
-				<button class="btn" id="prodThree" onclick="buyThird()">Buy <span id="rateThree">25</span> For <span id="costThree">1000</span></button><br>
-				<button class="btn" id="prodFour" onclick="buyFourth()">Buy <span id="rateFour">125</span> For <span id="costFour">4000</span></button><br>
-				<button class="btn" id="prodFive" onclick="buyFifth()">Buy <span id="rateFive">625</span> For <span id="costFive">16000</span></button>
+				<p style='font-size: 36px; font-weight: bold; text-decoration: underline overline; margin-top: -20px; margin-bottom:15px;'>FEATURES</p>
+				<button class="btn" id="prodOne" onclick="buyFirst()">Buy <span id="rateOne">1 </span><i class='far fa-hand-pointer' style='font-size:24px'></i>  For <span id="costOne">10</span> Donuts</button><br>
+				<button class="btn" id="prodTwo" onclick="buySecond()">Buy <span id="rateTwo">5 </span><i class='fas fa-coffee' style='font-size:24px'></i>  For <span id="costTwo">500</span> Donuts</button><br>
+				<button class="btn" id="prodThree" onclick="buyThird()">Buy <span id="rateThree">25 </span><i class='far fa-lightbulb' style='font-size:24px'></i>  for <span id="costThree">1000</span> Donuts</button><br>
+				<button class="btn" id="prodFour" onclick="buyFourth()">Buy <span id="rateFour">125 </span><i class='fas fa-hotel' style='font-size:24px'></i>  For <span id="costFour">4000</span> Donuts</button><br>
+				<button class="btn" id="prodFive" onclick="buyFifth()">Buy <span id="rateFive">625 </span><i class='fas fa-gem' style='font-size:24px'></i>  For <span id="costFive">16000 </span> Donuts</button>
 			</div>
 		</div>
 		<div class="production left">
 			<div class="centered">
-				<button class="btn" id="upClicker" onclick="upgradeClicker()">Double Donuts Per Click For <span id="costClicker">100</span></button><br>
-				<button class="btn" id="upOne" onclick="upgradeFirst()">Double First Production For <span id="costUpOne">1000</span></button><br>
-				<button class="btn" id="upTwo" onclick="upgradeSecond()">Double Second Production For <span id="costUpTwo">50000</span></button><br>
-				<button class="btn" id="upThree" onclick="upgradeThird()">Double Third Production For <span id="costUpThree">100000</span></button><br>
-				<button class="btn" id="upFour" onclick="upgradeFourth()">Double Fourth Production For <span id="costUpFour">400000</span></button><br>
-				<button class="btn" id="upFive" onclick="upgradeFifth()">Double Fifth Production For <span id="costUpFive">1600000</span></button><br>
+				<p style='font-size: 36px; font-weight: bold;text-decoration: underline overline; margin:15px;'>UPGRADES</p>
+				<button class="btn" id="upClicker" onclick="upgradeClicker()">Unlock Double Click For <span id="costClicker">100</span> Donuts</button><br>
+				<button class="btn" id="upOne" onclick="upgradeFirst()">Upgrade </span><i class='far fa-hand-pointer' style='font-size:24px'></i> Feature For <span id="costUpOne">1000</span> Donuts</button><br>
+				<button class="btn" id="upTwo" onclick="upgradeSecond()">Upgrade </span><i class='fas fa-coffee' style='font-size:24px'></i> Feature For <span id="costUpTwo">50000</span> Donuts</button><br>
+				<button class="btn" id="upThree" onclick="upgradeThird()">Upgrade </span><i class='far fa-lightbulb' style='font-size:24px'></i> Feature For <span id="costUpThree">100000</span> Donuts</button><br>
+				<button class="btn" id="upFour" onclick="upgradeFourth()">Upgrade </span><i class='fas fa-hotel' style='font-size:24px'></i> Feature For <span id="costUpFour">400000</span> Donuts</button><br>
+				<button class="btn" id="upFive" onclick="upgradeFifth()">Upgrade </span><i class='fas fa-gem' style='font-size:24px'></i> Feature For <span id="costUpFive">1600000</span> Donuts</button><br>
 			</div>
 		</div>
 
 
-	</body>
+
 	<footer>
 
 	</footer>
-</html>
+
+</body></html>
